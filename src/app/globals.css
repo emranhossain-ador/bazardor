@@ -6,6 +6,7 @@
 [data-theme="bazardor"] {
     color-scheme: light;
 
+    --color-foreground: #000;
     --color-base-100: oklch(99% .004 145);
     --color-base-200: oklch(96.5% .008 145);
     --color-base-300: oklch(92.5% .012 145);
