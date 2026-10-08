@@ -21,7 +21,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <body className="min-h-full flex flex-col">
                 <Header />
                 <MarqueeHeadLine />
-                <main className="max-w-6xl py-8 px-4 lg:px-0 w-full mx-auto bg-base-300">
+                <main className="max-w-6xl py-8 px-4 lg:px-0 w-full mx-auto bg-base-300 space-y-10">
                     {children}
                 </main>
             </body>

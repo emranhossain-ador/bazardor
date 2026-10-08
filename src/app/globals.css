@@ -38,6 +38,10 @@
 }
 
 
+@theme {
+    --color-foreground: var(--color-foreground);
+}
+
 
 @layer components{
     body{
@@ -58,15 +62,13 @@
 
 
 
-/* 
-    .text-primary{
-        color: #05893E;
-    }
-
-    .bg-primary{
-        background-color: #05893E;
-        color: white;
-    } */    
+    .price-up {
+        color: var(--color-error);
+    }  
     
+    .price-down {
+        color: var(--color-success);
+    }
+        
   
 }
