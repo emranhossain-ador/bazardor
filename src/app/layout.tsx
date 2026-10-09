@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
     return (
-        <html lang="en" data-theme='bazardor' className={`${notoSerifBengali.className} h-full antialiased`}>
+        <html lang="en" data-theme='bazardor' className={`${notoSerifBengali.className} h-full antialiased scroll-smooth`}>
 
             <body className="min-h-full flex flex-col">
                 <Header />

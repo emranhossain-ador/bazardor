@@ -69,6 +69,10 @@
     .price-down {
         color: var(--color-success);
     }
+
+    .fullscreen{
+        min-height: calc(100vh - 290px);
+    }
         
-  
+
 }

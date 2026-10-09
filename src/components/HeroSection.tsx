@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const HeroSection = () => {
     return (
@@ -23,9 +24,9 @@ const HeroSection = () => {
                     </p>
 
                     <div className="mt-5 md:mt-7">
-                        <button className="btn btn-primary btn-lg">
+                        <Link href={'#সব-পণ্য'} className="btn btn-primary btn-lg">
                             সব পণ্য দেখুন
-                        </button>
+                        </Link>
                     </div>
                 </div>
 

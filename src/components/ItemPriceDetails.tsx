@@ -1,6 +1,16 @@
+import { ProductType } from "@/app/ProductType";
 
 
-const ItemPriceDetailsPage = () => {
+const ItemPriceDetailsPage = ({ product }: { product: ProductType }) => {
+
+    const markets = product.markets ?? [];
+
+    const minPrice = markets.length > 0 ? Math.min(...markets.map((market) => market.min)) : null;
+
+    const maxPrice = markets.length > 0 ? Math.max(...markets.map((market) => market.max)) : null;
+
+    const averagePrice = markets.length > 0 ? Math.round(markets.reduce((sum, market) => sum + (market.min + market.max) / 2, 0) / markets.length) : null;
+
     return (
         <div className="rounded-2xl border border-base-300 bg-base-100 p-5">
             <div className="flex flex-col gap-6">
@@ -10,7 +20,7 @@ const ItemPriceDetailsPage = () => {
                         <div className="stat rounded-box border border-base-300 bg-base-100">
                             <div className="stat-title">সর্বনিম্ন দাম</div>
                             <div className="stat-value text-2xl text-success">
-                                ৮২
+                                {minPrice}
                                 <span className="text-sm font-medium"> টাকা</span>
                             </div>
                             <div className="stat-desc">সবচেয়ে কম দামের বাজার</div>
@@ -18,7 +28,7 @@ const ItemPriceDetailsPage = () => {
                         <div className="stat rounded-box border border-base-300 bg-base-100">
                             <div className="stat-title">সর্বাধিক দাম</div>
                             <div className="stat-value text-2xl text-error">
-                                ১০২
+                                {maxPrice}
                                 <span className="text-sm font-medium"> টাকা</span>
                             </div>
                             <div className="stat-desc">সবচেয়ে বেশি দামের বাজার</div>
@@ -26,7 +36,7 @@ const ItemPriceDetailsPage = () => {
                         <div className="stat rounded-box border border-base-300 bg-base-100">
                             <div className="stat-title">গড় দাম</div>
                             <div className="stat-value text-2xl text-primary">
-                                ৯২
+                                {averagePrice}
                                 <span className="text-sm font-medium"> টাকা</span>
                             </div>
                             <div className="stat-desc">প্রতি কেজি-এর হিসাবে</div>
@@ -42,35 +52,23 @@ const ItemPriceDetailsPage = () => {
                         <table className="table table-zebra">
                             <thead>
                                 <tr>
-                                    <th>বাজার</th>
-                                    <th>বিভাগ</th>
-                                    <th className="text-right">সর্বনিম্ন</th>
-                                    <th className="text-right">সর্বাধিক</th>
-                                    <th className="text-right">গড়</th>
+                                    <th className="text-lg">বাজার</th>
+                                    <th className="text-lg">বিভাগ</th>
+                                    <th className="text-right text-lg">সর্বনিম্ন</th>
+                                    <th className="text-right text-lg">সর্বাধিক</th>
+                                    <th className="text-right text-lg">গড়</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td className="font-medium">মাঠ বাজার</td>
-                                    <td className="text-base-content/70">ময়মনসিংহ</td>
-                                    <td className="text-right">৮২ টাকা</td>
-                                    <td className="text-right">৯১ টাকা</td>
-                                    <td className="text-right font-semibold">৮৬.৫০ টাকা</td>
-                                </tr>
-                                <tr>
-                                    <td className="font-medium">সদর বাজার</td>
-                                    <td className="text-base-content/70">রাজশাহী</td>
-                                    <td className="text-right">৮৩ টাকা</td>
-                                    <td className="text-right">৯২ টাকা</td>
-                                    <td className="text-right font-semibold">৮৭.৫০ টাকা</td>
-                                </tr>
-                                <tr>
-                                    <td className="font-medium">বাজারহাট</td>
-                                    <td className="text-base-content/70">খুলনা</td>
-                                    <td className="text-right">৮৩ টাকা</td>
-                                    <td className="text-right">৯৪ টাকা</td>
-                                    <td className="text-right font-semibold">৮৮.৫০ টাকা</td>
-                                </tr>
+                                {product.markets.map((market, index) => (
+                                    <tr key={index}>
+                                        <td className="text-base font-medium">{market.market}</td>
+                                        <td className="text-base text-base-content/70">{market.division}</td>
+                                        <td className="text-base text-right">{market.min} টাকা</td>
+                                        <td className="text-base text-right">{market.max} টাকা</td>
+                                        <td className="text-base text-right font-semibold">{((market.min + market.max) / 2).toFixed(2)} টাকা</td>
+                                    </tr>
+                                ))}
                             </tbody>
                         </table>
                     </div>
