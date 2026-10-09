@@ -6,7 +6,7 @@ const TodayDownPriceItems = () => {
     return (
         <section className="space-y-8">
 
-            <SectionHeader title="আজ দাম কমেছে" isPriceDown={true} />
+            <SectionHeader title="আজ দাম কমেছে" isPriceDown={false} />
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 <Itemcard />
                 <Itemcard />

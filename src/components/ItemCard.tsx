@@ -2,7 +2,7 @@ import Link from "next/link"
 
 const Itemcard = () => {
     return (
-        <Link href="/product" className="card border border-base-300 bg-base-100 transition hover:border-primary hover:shadow-md focus-visible:outline-2 focus-visible:outline-primary">
+        <Link href="/product/sorno-machi-chal" className="card border border-base-300 bg-base-100 transition hover:border-primary hover:shadow-md focus-visible:outline-2 focus-visible:outline-primary">
             <div className="card-body gap-3 p-4">
                 <div className="flex items-start gap-3">
                     <span aria-hidden="true" className="grid size-14 shrink-0 place-items-center rounded-xl bg-base-200 text-3xl">🧅</span>

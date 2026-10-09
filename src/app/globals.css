@@ -45,7 +45,7 @@
 
 @layer components{
     body{
-        background-color: var(--color-base-300);
+        background-color: var(--color-base-200);
         box-sizing: border-box;
         margin: 0;
         padding: 0;
