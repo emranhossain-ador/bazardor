@@ -1,10 +1,25 @@
 "use client";
 import { signOut, useSession } from "@/lib/auth-client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 const HeaderButtons = () => {
     const userdata = useSession();
     const user = userdata.data?.user;
+
+    const router = useRouter();
+
+    const logout = async () => {
+        await signOut({
+            fetchOptions: {
+                onSuccess: () => {
+                    router.push("/");
+                    toast.success("Sign out successfully");
+                },
+            },
+        });
+    }
 
     return (
         <div>
@@ -29,7 +44,7 @@ const HeaderButtons = () => {
                                 <Link href="/profile" className="text-[15px]">👤 আমার প্রোফাইল</Link>
                             </li>
                             <li>
-                                <button type="button" onClick={() => signOut()} className="text-error text-[15px]">↩︎ সাইন আউট</button>
+                                <button type="button" onClick={logout} className="text-error text-[15px]">↩︎ সাইন আউট</button>
                             </li>
                         </ul>
                     </div>

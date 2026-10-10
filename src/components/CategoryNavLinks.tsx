@@ -11,7 +11,7 @@ interface Category {
 const CategoryNavLinks = async () => {
 
 
-    const res = await fetch('https://api.api-store.workers.dev/api/bazardor/categories');
+    const res = await fetch('https://openapi.programming-hero.com/api/bazardor/categories');
 
     if (!res.ok) { throw new Error("Failed to fetch category"); }
 

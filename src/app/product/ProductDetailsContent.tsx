@@ -6,7 +6,7 @@ import { notFound } from "next/navigation";
 export default async function ProductDetailsContent({ params }: { params: Promise<{ productid: string }> }) {
     const { productid } = await params;
 
-    const res = await fetch(`https://api.api-store.workers.dev/api/bazardor/products/${productid}`);
+    const res = await fetch(`https://openapi.programming-hero.com/api/bazardor/products/${productid}`);
 
     if (!res.ok) {
         notFound();

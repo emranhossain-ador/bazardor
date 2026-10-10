@@ -16,7 +16,7 @@ const CategoryItems = async ({ params }: { params: Promise<{ categoryid: string 
     const { categoryid } = await params;
 
     // Get category
-    const res = await fetch(`https://api.api-store.workers.dev/api/bazardor/categories/${categoryid}`);
+    const res = await fetch(`https://openapi.programming-hero.com/api/bazardor/categories/${categoryid}`);
 
     if (!res.ok) {
         notFound();
@@ -25,7 +25,7 @@ const CategoryItems = async ({ params }: { params: Promise<{ categoryid: string 
     const category: Category = await res.json();
 
     // Get category items
-    const catItemRes = await fetch(`https://api.api-store.workers.dev/api/bazardor/products?category=${categoryid}`);
+    const catItemRes = await fetch(`https://openapi.programming-hero.com/api/bazardor/products?category=${categoryid}`);
 
     if (!catItemRes.ok) {
         notFound();
