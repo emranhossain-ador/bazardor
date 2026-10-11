@@ -1,13 +1,14 @@
 import "react-marquee-text/dist/styles.css"
 import HeadLineText from "./MarHeadlineText";
 import { Suspense } from "react";
+import MarqueeSkeleton from "@/app/MarqueeSkeleton";
 
 const MarqueeHeadLine = async () => {
 
 
     return (
         <div>
-            <Suspense fallback={<p className="text-center text-base-content/70">...</p>}>
+            <Suspense fallback={<MarqueeSkeleton />}>
                 <HeadLineText />
             </Suspense>
         </div>

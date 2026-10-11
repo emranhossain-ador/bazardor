@@ -1,7 +1,7 @@
 
 import { Suspense } from "react";
 import CategoryItems from "../CategoryItems";
-import Loader from "@/components/Loader";
+import CategorySkeleton from "../CategorySkeleton";
 
 
 interface CategoryPageProps {
@@ -15,7 +15,7 @@ const CategoryPage = ({ params }: CategoryPageProps) => {
     return (
         <section className="space-y-8 fullscreen">
 
-            <Suspense fallback={<Loader />}>
+            <Suspense fallback={<CategorySkeleton />}>
                 <CategoryItems params={params} />
             </Suspense>
 
